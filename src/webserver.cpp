@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <WebServer.h>
 
 extern WebServer servidor;
@@ -17,3 +18,20 @@ void handleNotFound()
 {
     servidor.send(404, "text/plain", "Not found");
 }
+
+void InitServer()
+{
+    // Ruteo para '/'
+    servidor.on("/", handleRoot);
+
+    // Ruteo para '/inline' usando funcion lambda
+    servidor.on("/inline", []()
+                { servidor.send(200, "text/plain", "Esto tambien funciona"); });
+
+    // Ruteo para URI desconocida
+    servidor.onNotFound(handleNotFound);
+
+    // INICIAR SERVIDOR
+    servidor.begin();
+    Serial.println("¡Servidor web iniciado!");
+};

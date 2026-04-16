@@ -4,6 +4,7 @@
 #include <WiFi.h>
 
 #include <config.h>
+#include <wifiManager.h>
 
 void ConnectWifi_STA()
 {
