@@ -5,8 +5,6 @@
 
 extern WebServer servidor;
 
-
-
 float temperatura = 0.0;
 String mensaje = "Temperatura: " + String(temperatura);
 

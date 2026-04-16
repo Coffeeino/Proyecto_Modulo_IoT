@@ -10,7 +10,7 @@ void ConnectWifi_STA()
 {
     Serial.println("");
     WiFi.mode(WIFI_STA);
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);   // Conexión del ESP32 a punto de acceso WIFI.
     while (WiFi.status() != WL_CONNECTED)
     {
         delay(100);
