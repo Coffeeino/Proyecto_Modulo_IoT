@@ -1,3 +1,4 @@
+// Más información en: https://www.luisllamas.es/como-emplear-el-esp8266-como-servidor/
 #include <Arduino.h>
 #include <WiFi.h> //Librería para importar funciones Wifi
 #include <WebServer.h>  //librería para importar funciones servidor web
