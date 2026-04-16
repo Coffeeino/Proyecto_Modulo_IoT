@@ -1,14 +1,21 @@
 #include <Arduino.h>
 #include <WebServer.h>
 
+#include <global.h>
+
 extern WebServer servidor;
+
+
+
+float temperatura = 0.0;
+String mensaje = "Temperatura: " + String(temperatura);
 
 // Función que se ejecuta en URI '/' (La “ruta” dentro de una web o servidor)
 // “Cuando alguien entre a la URI /, ejecuta handleRoot()”
 // Se ejecuta cuando el navegador pide: http://IP_DEL_ESP32/
 void handleRoot()
 {
-    servidor.send(200, "text/plain", "Hola mundo!");
+    servidor.send(200, "text/plain", mensaje);
 }
 
 // Funcion que se ejecutara en URI desconocida
