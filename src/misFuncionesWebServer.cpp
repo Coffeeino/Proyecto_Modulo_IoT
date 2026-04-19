@@ -1,18 +1,18 @@
 #include <Arduino.h>
 #include <WebServer.h>
+#include <misFuncionesWebServer.h>
 
-#include <global.h>
+static float temperatura = 0.0; //Privada solo accesible desde este archivo
 
-extern WebServer servidor;
-
-float temperatura = 0.0;
-String mensaje = "Temperatura: " + String(temperatura);
+void setTemperatura(float t) { temperatura = t; }
+float getTemperatura() { return temperatura; }
 
 // Función que se ejecuta en URI '/' (La “ruta” dentro de una web o servidor)
 // “Cuando alguien entre a la URI /, ejecuta handleRoot()”
 // Se ejecuta cuando el navegador pide: http://IP_DEL_ESP32/
 void handleRoot()
 {
+    String mensaje = "Temperatura: " + String(temperatura);
     servidor.send(200, "text/plain", mensaje);
 }
 

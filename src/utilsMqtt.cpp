@@ -2,31 +2,40 @@
 // Está pensado para contener código que podéis reusar entre proyectos con poca o ninguna modificación.
 
 #include <misFuncionesMqtt.h>
-const uint16_t MQTT_PORT = 1883;
+#include <config.h>
+
 
 void InitMqtt()
 {
     mqttClient.setServer(MQTT_BROKER_ADRESS, MQTT_PORT);
-    SuscribeMqtt();
+    SuscribeMqtt(); 
     mqttClient.setCallback(OnMqttReceived);
 }
 
 void ConnectMqtt()
 {
+    Serial.println("");
+    Serial.print("ESP32 IP: ");
+    Serial.println(WiFi.localIP());
+    Serial.print("Conectando a broker: ");
+    Serial.print(MQTT_BROKER_ADRESS);
+    Serial.print(":");
+    Serial.println(MQTT_PORT);
+
     while (!mqttClient.connected())
     {
-        Serial.print("Iniciando conexión MQTT...");
         if (mqttClient.connect(MQTT_CLIENT_NAME))
         {
+            Serial.println("¡Conectado al broker!");
             SuscribeMqtt();
         }
         else
         {
-            Serial.print("Conexión MQTT fallida, rc=");
+            Serial.print("Fallo rc=");
             Serial.print(mqttClient.state());
-            Serial.println("Reconexión en 5 segundos...");
-
-            delay(5000);
+            Serial.print(" estado WiFi=");
+            Serial.println(WiFi.status());
+            delay(5000);<z
         }
     }
 }

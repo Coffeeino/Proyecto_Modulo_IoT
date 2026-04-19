@@ -5,11 +5,7 @@
 extern WiFiClient clienteTCP_IP;
 extern PubSubClient mqttClient;
 
-extern const char* MQTT_BROKER_ADRESS;
-extern const char* MQTT_CLIENT_NAME;
-extern const uint16_t MQTT_PORT;
-
-extern String Datos_Peticion;
+String getDatosPeticion();
 
 void InitMqtt();
 void ConnectMqtt();
