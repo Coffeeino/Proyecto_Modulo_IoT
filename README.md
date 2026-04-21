@@ -1,4 +1,1 @@
-IES Juan de la Cierva
-ARI2V
-Brandon Alexis Delgado Huamanzana
-Anthony Sanchez Jafet
+Módulo IoT para implementación de servidor listo para la comunicación con servidor Node-Red.
