@@ -1,6 +1,9 @@
-#pragma once    // Aviso al compilador que aunque misFuncionesWebServer esten declaradas en diferentes archivos, solo se declare una vez.
-#include <WebServer.h>  // Libreria "WebServer.h"
+// Avisa al compilador que, aunque WebServerManager.h esté incluido en diferentes archivos, solo se procese una vez.
+#pragma once
 
-extern WebServer servidor;  // Avisa que el objeto servidor ya existe y esta declarado en otro lado.
+#include <WebServer.h> // Librería "WebServer.h"
 
-void InitServer();  // Como esta función se va a usar en otro archivo se debe de declarar en misFuncionesWebServer.h
+extern WebServer servidor; // Indica que el objeto "servidor" ya existe y está declarado en otro archivo.
+
+void InitServer(); // Como esta función se va a usar en otro archivo, debe declararse aquí, en WebServerManager.h
+
